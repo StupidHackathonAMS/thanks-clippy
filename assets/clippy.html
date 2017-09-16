@@ -1,0 +1,19 @@
+<span class="clippy-speech-bubble">
+    <span class="clippy-text"></span>
+</span>
+<span class="clippy-image"></span> 
+
+<script type="text/javascript">
+    greetings = [
+        'Heyyyy',
+        'Hi friend.',
+        'How\'s it going?',
+        'Watcha doing?',
+        'Howdy'
+    ];
+
+    randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+    text = document.getElementsByClassName('clippy-text');
+
+    text[0].innerText = randomGreeting;
+</script>
