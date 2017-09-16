@@ -1,5 +1,58 @@
 {
     "manifest_version": 2,
     "name": "Thanks, Clippy",
-    "version": "0.1"      
+    "version": "0.1",
+    "permissions": ["tabs", "<all_urls>"],  
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": [
+          "assets/js/jquery.min.js", 
+          "assets/js/clippy.js"
+        ],
+        "run_at": "document_start",
+        "css": ["assets/css/style.css"],
+        "pages": ["assets/clippy.html", "assets/incognito.html"]
+      },
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "exclude_matches": [
+          "https://www.youtube.com/",
+          "https://www.facebook.com/"
+        ],
+        "js": ["scripts/follow.js"]
+      },
+      {
+        "matches": [
+          "https://web.whatsapp.com/"
+        ],
+        "js": ["scripts/whatsapp.js"]
+      },
+      {
+        "matches": [
+          "https://www.reddit.com/"
+        ],
+        "js": ["scripts/reddit.js"]
+      },
+      {
+        "matches": [
+          "https://www.youtube.com/"
+        ],
+        "js": ["scripts/youtube.js"]
+      },
+      {
+        "matches": [
+          "https://www.facebook.com/"
+        ],
+        "js": ["scripts/facebook.js"]
+      }
+    ],
+    "background": {
+      "scripts": ["assets/js/background.js"]
+    },
+    "web_accessible_resources": ["assets/*", "scripts/*"]
 }
